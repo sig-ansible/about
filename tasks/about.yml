@@ -1,0 +1,20 @@
+---
+- name: Create system information directory
+  file:
+    path: "{{about_root}}"
+    state: directory
+    mode: "0755"
+
+- name: Create about command
+  template:
+    src: about.sh
+    dest: "{{about_cmd}}"
+    mode: "755"
+
+# - name: Store run info
+#   template:
+#     src: run_info.txt
+#     dest: "{{about_root}}/00_run_info.txt"
+#     mode: "0644"
+
+- include_tasks: about_{{ansible_os_family}}.yml

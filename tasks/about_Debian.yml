@@ -1,0 +1,8 @@
+---
+# - name: Add sytem information login message
+#   template:
+#     src: motd.sh
+#     dest: /etc/update-motd.d/80-ansible_about
+#     mode: '0755'
+#   when: about_login_banner
+#   notify: update motd
